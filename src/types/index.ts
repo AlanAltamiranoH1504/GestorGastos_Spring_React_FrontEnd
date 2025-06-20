@@ -6,4 +6,5 @@ export type FormUserRegister = {
     password2: string
 }
 
+export type FormLoginUser = Pick<FormUserRegister, "nombre" | "password">
 export type User = Pick<FormUserRegister, "nombre" | "apellidos" | "email" | "password" >

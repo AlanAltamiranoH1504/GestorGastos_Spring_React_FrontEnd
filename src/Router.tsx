@@ -1,13 +1,15 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import RegisterView from "./views/RegisterView";
 import AuthLayout from "./layouts/AuthLayout";
+import LoginView from "./views/LoginView";
 
 export default function Router() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route element={<AuthLayout/>}>
-                    <Route path="/iniciar-sesion" element={<RegisterView/>}></Route>
+                    <Route path="/auth/registro" element={<RegisterView/>}></Route>
+                    <Route path="/auth/login" element={<LoginView/>}></Route>
                 </Route>
             </Routes>
         </BrowserRouter>

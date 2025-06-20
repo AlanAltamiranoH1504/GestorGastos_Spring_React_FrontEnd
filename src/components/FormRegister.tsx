@@ -4,12 +4,13 @@ import {useMutation} from "@tanstack/react-query";
 import type {FormUserRegister} from "../types";
 import {registerUser} from "../api/springboot_api";
 import {toast} from "react-toastify";
+import FooterFormAuth from "./FooterFormAuth";
 
 const FormRegister = () => {
     const {register, handleSubmit, formState: {errors}} = useForm<FormUserRegister>();
 
     const saveUsuarioNuevo = (data: FormUserRegister) => {
-        const userData: FormUserRegister = data;
+        const userData = data;
         mutation.mutate(userData);
     }
 
@@ -25,6 +26,7 @@ const FormRegister = () => {
     return (
         <Fragment>
             <div className="bg-white shadow border rounded-lg my-10 px-5 py-8">
+                <h2 className="text-center text-lg text-blue-600 font-bold mb-2">Gestiona tu Gastos Facilmente</h2>
                 <form
                     onSubmit={handleSubmit(saveUsuarioNuevo)}
                 >
@@ -99,6 +101,7 @@ const FormRegister = () => {
                         <input type="submit" value="Registrar Cuenta"
                                className="border w-full p-2 bg-blue-400 rounded-lg text-white font-semibold cursor-pointer hover:bg-blue-500"/>
                     </div>
+                    {<FooterFormAuth/>}
                 </form>
             </div>
         </Fragment>
