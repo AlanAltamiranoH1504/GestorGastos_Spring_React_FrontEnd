@@ -18,3 +18,18 @@ export const loginUser = async (usuario: FormLoginUser) => {
         throw e;
     }
 }
+
+//Funciones para usuarioController
+export const findByEmail = async (email: string) => {
+    const token = localStorage.getItem("AUTH_TOKEN_SPRING_GG");
+    try {
+        const response = await clienteAxios.get(`/usuarios/email/${email}`, {
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        });
+        return response.data;
+    }catch (e) {
+        throw e;
+    }
+}

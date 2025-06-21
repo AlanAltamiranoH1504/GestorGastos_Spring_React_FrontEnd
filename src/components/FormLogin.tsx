@@ -19,12 +19,9 @@ const FormLogin = () => {
         mutationFn: loginUser,
         onSuccess: (data) => {
             const {token} = data.data;
-            localStorage.setItem("AUTH_TOKEN_SPRIN_GG", token);
-            console.log(token);
+            localStorage.setItem("AUTH_TOKEN_SPRING_GG", token);
             toast.success("Login correcto");
-            setTimeout(() => {
-                navigate("/auth/registro");
-            }, 3000)
+            navigate("/administracion");
         },
         onError: (error) => {
             toast.error(error.response.data.error);
