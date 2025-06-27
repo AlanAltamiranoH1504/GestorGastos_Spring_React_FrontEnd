@@ -1,10 +1,11 @@
 import {useForm} from "react-hook-form";
-import {FormLoginUser} from "../types";
+import type {FormLoginUser} from "../types";
 import {useMutation} from "@tanstack/react-query";
 import {toast} from "react-toastify";
 import {loginUser} from "../api/springboot_api";
 import {useNavigate} from "react-router-dom";
 import FooterFormAuth from "./FooterFormAuth";
+import axios from "axios";
 
 const FormLogin = () => {
     const {register, handleSubmit, formState: {errors}} = useForm<FormLoginUser>();
@@ -24,7 +25,9 @@ const FormLogin = () => {
             navigate("/administracion");
         },
         onError: (error) => {
-            toast.error(error.response.data.error);
+            if (axios.isAxiosError(error)) {
+                toast.error(error.response?.data.error);
+            }
         }
     })
 
