@@ -8,7 +8,8 @@ const AppLayout = () => {
     const {data, isLoading, error} = useQuery({
         queryKey: ["findUsuarioByEmail"],
         queryFn: () => findByEmail("alan@gmail.com"),
-        retry: false
+        retry: false,
+        refetchOnWindowFocus: false
     });
     const informacionUsuario: UsuarioLogeado = data;
     if (isLoading) {
