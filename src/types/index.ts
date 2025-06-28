@@ -13,9 +13,22 @@ export type UsuarioLogeado = {
     password: string;
     perfilId: number;
     estadoId: number;
-    imagen: string
+    imagenURL: string
+}
+
+export type Proveedor = {
+    id: number;
+    nombre: string;
+}
+
+export type GastoPorDia = {
+    neto: number,
+    iva: number,
+    total: number,
+    descripcion: string;
+    proveedorId: null;
 }
 
 export type FormLoginUser = Pick<FormUserRegister, "email" | "password">
 export type User = Pick<FormUserRegister, "nombre" | "apellidos" | "email" | "password" >
-export type UpdateUsuario = Pick<UsuarioLogeado, "id" | "nombre" | "apellidos" | "email" | "imagen" | "perfilId" | "estadoId">
+export type UpdateUsuario = Pick<UsuarioLogeado, "id" | "nombre" | "apellidos" | "email" | "imagenURL" | "perfilId" | "estadoId">

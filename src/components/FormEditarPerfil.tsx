@@ -13,7 +13,7 @@ const FormEditarPerfil = () => {
             "nombre": usuarioEnSesionCache.nombre,
             "apellidos": usuarioEnSesionCache.apellidos,
             "email": usuarioEnSesionCache.email,
-            "imagen": "",
+            "imagenURL": "",
             "perfilId": usuarioEnSesionCache.perfilId,
             "estadoId": usuarioEnSesionCache.estadoId,
             "password": ""
@@ -22,9 +22,9 @@ const FormEditarPerfil = () => {
 
     function handleUpdateInformacion(data: UpdateUsuario) {
         mutationUpdateInformacionUsuario.mutate(data);
-        if (data.imagen[0]){
+        if (data.imagenURL[0]){
             const formData = new FormData();
-            formData.append("imagen", data.imagen[0]);
+            formData.append("imagenURL", data.imagenURL[0]);
             mutationUpdateImagenPerfil.mutate(formData);
         }
     }
@@ -139,7 +139,7 @@ const FormEditarPerfil = () => {
                             type="file"
                             className="border border-gray-300 p-2 w-full rounded-lg"
                             accept="image/*"
-                            {...register("imagen")}
+                            {...register("imagenURL")}
                         />
                     </div>
                     <div>

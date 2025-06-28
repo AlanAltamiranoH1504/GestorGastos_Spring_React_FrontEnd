@@ -5,6 +5,7 @@ import LoginView from "./views/LoginView";
 import AppLayout from "./layouts/AppLayout";
 import AdministracionView from "./views/AdministracionView";
 import FormEditarPerfil from "./components/FormEditarPerfil";
+import GastoPorDiaView from "./views/GastoPorDiaView";
 
 export default function Router() {
     return (
@@ -20,6 +21,9 @@ export default function Router() {
                 <Route element={<AppLayout/>}>
                     <Route path="/administracion" element={<AdministracionView/>}></Route>
                     <Route path="/perfil/editar" element={<FormEditarPerfil/>}></Route>
+
+                    {/*Rutas para gasto por dia*/}
+                    <Route path="/gastos/por_dia" element={<GastoPorDiaView/>}></Route>
                 </Route>
             </Routes>
         </BrowserRouter>

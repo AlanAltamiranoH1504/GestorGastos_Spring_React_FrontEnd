@@ -1,5 +1,5 @@
 import clienteAxios from "../config/axios";
-import type {FormLoginUser, UpdateUsuario, User} from "../types";
+import type {FormLoginUser, GastoPorDia, UpdateUsuario, User} from "../types";
 
 export const registerUser = async (usuario: User) => {
     // eslint-disable-next-line no-useless-catch
@@ -65,5 +65,41 @@ export const updateImagenPerfilUsuario = async (imagen: FormData) => {
         return response.data;
     }catch (e) {
         console.log(e);
+    }
+}
+
+
+/**
+ * FUNCIONES PARA ProveedorController
+ */
+export const findAllProveedores = async () => {
+    const token = localStorage.getItem("AUTH_TOKEN_SPRING_GG");
+    try {
+        const response = await clienteAxios.get("/proveedores", {
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        });
+        const proveedores = response.data;
+        return proveedores;
+    }catch (e) {
+        console.log(e);
+    }
+}
+
+/**
+ * FUNCIONES PARA GastoPorDiaController
+ */
+export const saveGastoPorDiaPeticion = async (gasto: GastoPorDia) => {
+    const token = localStorage.getItem("AUTH_TOKEN_SPRING_GG");
+    try {
+        const response = await clienteAxios.post("/gastos-por-dia", gasto, {
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        });
+        return response.data;
+    }catch (e) {
+        console.log(e)
     }
 }

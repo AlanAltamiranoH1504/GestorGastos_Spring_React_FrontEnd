@@ -6,7 +6,7 @@ type AppProps = {
     informacionUsuario: UsuarioLogeado
 }
 const App = ({informacionUsuario}: AppProps) => {
-    const existeImagenPerfil: string = informacionUsuario.imagen ? informacionUsuario.imagen : "/imagenes/perfil2.webp";
+    const existeImagenPerfil: string = informacionUsuario.imagenURL ? informacionUsuario.imagenURL : "/imagenes/perfil2.webp";
     return (
         <>
             <Header/>
