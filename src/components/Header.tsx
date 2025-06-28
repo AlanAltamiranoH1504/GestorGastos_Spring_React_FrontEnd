@@ -6,7 +6,7 @@ const Header = () => {
             <header className="bg-slate-900 py-5">
                 <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center md:justify-between">
                     <div className="w-full p-5 lg:p-0 md:w-1/3">
-                        <Link to="">
+                        <Link to="/administracion">
                             <img src="/logo.svg" alt="Logo svg" className="w-full block max-h-32" />
                         </Link>
                     </div>

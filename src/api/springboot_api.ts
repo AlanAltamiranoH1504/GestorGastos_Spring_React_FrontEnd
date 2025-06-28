@@ -90,6 +90,21 @@ export const findAllProveedores = async () => {
 /**
  * FUNCIONES PARA GastoPorDiaController
  */
+export const findAllGsatosPorDia = async () => {
+    const token = localStorage.getItem("AUTH_TOKEN_SPRING_GG");
+    // eslint-disable-next-line no-useless-catch
+    try {
+        const response = await clienteAxios.get("/gastos-por-dia", {
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        });
+        return response.data;
+    }catch (e) {
+        throw e;
+    }
+}
+
 export const saveGastoPorDiaPeticion = async (gasto: GastoPorDia) => {
     const token = localStorage.getItem("AUTH_TOKEN_SPRING_GG");
     try {

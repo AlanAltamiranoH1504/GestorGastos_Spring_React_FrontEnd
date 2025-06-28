@@ -11,7 +11,7 @@ const App = ({informacionUsuario}: AppProps) => {
         <>
             <Header/>
             <div className="bg-gray-100 min-h-screen py-10">
-                <main className="mx-auto max-w-5xl p-10 md:p-0">
+                <main className="mx-auto max-w-7xl p-10 md:p-0">
                     <div className="flex flex-col md:flex-row gap-10 mt-10">
                         <div className="flex-1">
                             <Outlet/>

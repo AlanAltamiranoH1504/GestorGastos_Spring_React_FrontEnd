@@ -20,14 +20,16 @@ export type Proveedor = {
     id: number;
     nombre: string;
 }
-
-export type GastoPorDia = {
-    neto: number,
-    iva: number,
-    total: number,
+export type GastoPorDiaBackend = {
+    id: number;
+    neto: number;
+    iva: number;
+    total: number;
+    fecha: string;
     descripcion: string;
     proveedorId: null;
 }
+export type GastoPorDia = Pick<GastoPorDiaBackend, "neto" | "iva" | "total" | "descripcion" | "proveedorId">
 
 export type FormLoginUser = Pick<FormUserRegister, "email" | "password">
 export type User = Pick<FormUserRegister, "nombre" | "apellidos" | "email" | "password" >
