@@ -13,13 +13,12 @@ const AdministracionView = () => {
         retry: 1,
         refetchOnWindowFocus: false
     });
+
     useEffect(() => {
         if (data){
             setGastosDia(data);
         }
     }, [data]);
-
-    console.log(gastosDia);
     if (isError) {
         toast.error("Error en la busqueda de gastos por dia.")
     }
@@ -37,6 +36,7 @@ const AdministracionView = () => {
                             <th className="px-6 py-2 text-center text-sm font-semibold text-white">Fecha</th>
                             <th className="px-6 py-2 text-center text-sm font-semibold text-white">Descripción</th>
                             <th className="px-6 py-2 text-center text-sm font-semibold text-white">Proveedor</th>
+                            <th className="px-6 py-2 text-center text-sm font-semibold text-white">Acciones</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-400">

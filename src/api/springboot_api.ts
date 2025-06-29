@@ -105,10 +105,38 @@ export const findAllGsatosPorDia = async () => {
     }
 }
 
+export const findGastoPorDiaByIdPeticion = async (id: number) => {
+    const token = localStorage.getItem("AUTH_TOKEN_SPRING_GG");
+    try {
+        const response = await clienteAxios.get(`/gastos-por-dia/${id}`, {
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        });
+        return response.data;
+    }catch (e) {
+        console.log(e)
+    }
+}
+
 export const saveGastoPorDiaPeticion = async (gasto: GastoPorDia) => {
     const token = localStorage.getItem("AUTH_TOKEN_SPRING_GG");
     try {
         const response = await clienteAxios.post("/gastos-por-dia", gasto, {
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        });
+        return response.data;
+    }catch (e) {
+        console.log(e)
+    }
+}
+
+export const deleteGastoPorDiaPeticion = async (id: number) => {
+    const token = localStorage.getItem("AUTH_TOKEN_SPRING_GG");
+    try {
+        const response = await clienteAxios.delete(`/gastos-por-dia/${id}`, {
             headers: {
                 "Authorization": "Bearer " + token
             }

@@ -6,6 +6,7 @@ import AppLayout from "./layouts/AppLayout";
 import AdministracionView from "./views/AdministracionView";
 import FormEditarPerfil from "./components/FormEditarPerfil";
 import GastoPorDiaView from "./views/GastoPorDiaView";
+import FormEditarGastoPorDia from "./components/FormEditarGastoPorDia";
 
 export default function Router() {
     return (
@@ -24,6 +25,7 @@ export default function Router() {
 
                     {/*Rutas para gasto por dia*/}
                     <Route path="/gastos/por_dia" element={<GastoPorDiaView/>}></Route>
+                    <Route path="/gastos-por-dia/:id" element={<FormEditarGastoPorDia/>}></Route>
                 </Route>
             </Routes>
         </BrowserRouter>
