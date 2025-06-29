@@ -32,7 +32,10 @@ export type GastoPorDiaBackend = {
         nombre: string;
     }
 }
-export type GastoPorDia = Pick<GastoPorDiaBackend, "neto" | "iva" | "total" | "descripcion" | "proveedor">
+export type GastoPorDia = Pick<GastoPorDiaBackend, "neto" | "iva" | "total" | "descripcion"> & {
+    proveedorId: number,
+    id: number;
+}
 
 export type FormLoginUser = Pick<FormUserRegister, "email" | "password">
 export type User = Pick<FormUserRegister, "nombre" | "apellidos" | "email" | "password" >

@@ -6,7 +6,7 @@ export const registerUser = async (usuario: User) => {
     try {
         const response = await clienteAxios.post("/usuarios", usuario);
         return response;
-    }catch (e) {
+    } catch (e) {
         throw e;
     }
 }
@@ -16,7 +16,7 @@ export const loginUser = async (usuario: FormLoginUser) => {
     try {
         const response = await clienteAxios.post("/login", usuario);
         return response;
-    }catch (e) {
+    } catch (e) {
         throw e;
     }
 }
@@ -32,7 +32,7 @@ export const findByEmail = async (email: string) => {
             }
         });
         return response.data;
-    }catch (e) {
+    } catch (e) {
         throw e;
     }
 }
@@ -48,14 +48,14 @@ export const updateInformacionUsuario = async (usuario: UpdateUsuario) => {
             }
         });
         return response.data;
-    }catch (e) {
+    } catch (e) {
         throw e;
     }
 }
 
 export const updateImagenPerfilUsuario = async (imagen: FormData) => {
     const token = localStorage.getItem("AUTH_TOKEN_SPRING_GG");
-    try{
+    try {
         const response = await clienteAxios.post(`/imagenes`, imagen, {
             headers: {
                 "Authorization": "Bearer " + token,
@@ -63,7 +63,7 @@ export const updateImagenPerfilUsuario = async (imagen: FormData) => {
             }
         });
         return response.data;
-    }catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
@@ -82,7 +82,7 @@ export const findAllProveedores = async () => {
         });
         const proveedores = response.data;
         return proveedores;
-    }catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
@@ -100,7 +100,7 @@ export const findAllGsatosPorDia = async () => {
             }
         });
         return response.data;
-    }catch (e) {
+    } catch (e) {
         throw e;
     }
 }
@@ -114,7 +114,7 @@ export const findGastoPorDiaByIdPeticion = async (id: number) => {
             }
         });
         return response.data;
-    }catch (e) {
+    } catch (e) {
         console.log(e)
     }
 }
@@ -128,7 +128,21 @@ export const saveGastoPorDiaPeticion = async (gasto: GastoPorDia) => {
             }
         });
         return response.data;
-    }catch (e) {
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+export const updateGastoPorDiaPeticion = async (gastoPorDia: GastoPorDia) => {
+    const token = localStorage.getItem("AUTH_TOKEN_SPRING_GG");
+    try {
+        const response = await clienteAxios.put(`/gastos-por-dia/${gastoPorDia.id}`, gastoPorDia, {
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        });
+        return response.data;
+    } catch (e) {
         console.log(e)
     }
 }
@@ -142,7 +156,7 @@ export const deleteGastoPorDiaPeticion = async (id: number) => {
             }
         });
         return response.data;
-    }catch (e) {
+    } catch (e) {
         console.log(e)
     }
 }
